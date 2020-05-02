@@ -17,7 +17,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body>
+<body ng-app="pizzaApp">
 
 <div class="container">
   <header class="navbar navbar-inverse" role="navigation">
@@ -100,60 +100,7 @@
 
       <div class="col-md-6">
         <div class="well" role="form">
-          <form id="orderForm">
-            <div class="form-group">
-              <label for="pieSize">Size:</label>
-              <select name="pieSize" id="pieSize" class="form-control">
-                <option>Personal</option>
-                <option>Small</option>
-                <option>Medium</option>
-                <option selected>Large</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="pieCrust">Crust:</label>
-              <select name="pieCrust" id="pieCrust" class="form-control">
-                <option>Thin</option>
-                <option selected>Regular</option>
-                <option>Thick</option>
-              </select>
-            </div>
-            <div class="form-group"><label>Toppings:</label></div>
-            <div class="form-group" data-toggle="buttons">
-              <label class="btn btn-primary btn-sm active">
-                <input type="checkbox" checked> Pepperoni
-              </label>
-              <label class="btn btn-primary btn-sm active">
-                <input type="checkbox" checked> Sausage
-              </label>
-              <label class="btn btn-primary btn-sm">
-                <input type="checkbox"> Mushroom
-              </label>
-              <label class="btn btn-primary btn-sm">
-                <input type="checkbox"> Green Peppers
-              </label>
-            </div>
-            <div class="form-group" data-toggle="buttons">
-              <label class="btn btn-primary btn-sm">
-                <input type="checkbox"> Ham
-              </label>
-              <label class="btn btn-primary btn-sm">
-                <input type="checkbox"> Pineapple
-              </label>
-              <label class="btn btn-primary btn-sm">
-                <input type="checkbox"> Onions
-              </label>
-              <label class="btn btn-primary btn-sm">
-                <input type="checkbox"> Extra Cheese
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="delivery"><input type="checkbox" name="delivery" id="delivery"/> Delivery?</label>
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Order Now!" class="btn btn-success">
-            </div>
-          </form>
+          <div ng-view></div>
         </div>
       </div>
     </div>
@@ -166,9 +113,12 @@
 
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular-route/angular-route.min.js"></script>
+<!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>-->
 
-<script src="js/animal.js" type="text/javascript"></script>
-<script src="js/index.js" type="text/javascript"></script>
-<script src="js/sampleTypeScript.js" type="text/javascript"></script>
+
+<script src="js/app.js"></script>
+
 </body>
 </html>

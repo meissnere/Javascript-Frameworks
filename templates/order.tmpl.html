@@ -1,0 +1,58 @@
+<form id="orderForm" ng-submit="order.addOrder()">
+  <div><a href="#/status" class="btn btn-sm"><i class="glyphicon glyphicon-info-sign"></i> Status</a></div>
+  <div>Total orders: {{ order.orderCount }}</div>
+  <div class="form-group">
+    <label for="pieSize">Size:</label>
+    <select name="pieSize" id="pieSize" class="form-control">
+      <option>Personal</option>
+      <option>Small</option>
+      <option>Medium</option>
+      <option selected>Large</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="pieCrust">Crust:</label>
+    <select name="pieCrust" id="pieCrust" class="form-control">
+      <option>Thin</option>
+      <option selected>Regular</option>
+      <option>Thick</option>
+    </select>
+  </div>
+  <div class="form-group"><label>Toppings:</label></div>
+  <div class="form-group" data-toggle="buttons">
+    <label class="btn btn-primary btn-sm active">
+      <input type="checkbox" checked> Pepperoni
+    </label>
+    <label class="btn btn-primary btn-sm active">
+      <input type="checkbox" checked> Sausage
+    </label>
+    <label class="btn btn-primary btn-sm">
+      <input type="checkbox"> Mushroom
+    </label>
+    <label class="btn btn-primary btn-sm">
+      <input type="checkbox"> Green Peppers
+    </label>
+  </div>
+  <div class="form-group" data-toggle="buttons">
+    <label class="btn btn-primary btn-sm">
+      <input type="checkbox"> Ham
+    </label>
+    <label class="btn btn-primary btn-sm">
+      <input type="checkbox"> Pineapple
+    </label>
+    <label class="btn btn-primary btn-sm">
+      <input type="checkbox"> Onions
+    </label>
+    <label class="btn btn-primary btn-sm">
+      <input type="checkbox"> Extra Cheese
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="delivery"><input type="checkbox" name="delivery" id="delivery"/> Delivery?</label>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Order Now!" class="btn btn-success">
+  </div>
+</form>
+
+<wm-pizza-bar></wm-pizza-bar>
