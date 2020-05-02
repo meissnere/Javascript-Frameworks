@@ -1,19 +1,11 @@
 // app.js
-
-/*
-  Purpose - generating routes for webapp
-  @author - Erich Meissner
-  @date - 5/1/2020
-  @time - 9:37 PM
- */
-
 (function () {
+
   "use strict";
 
   var module = angular.module("pizzaApp", ["ngRoute"]);
 
   module.config(function ($routeProvider) {
-
 
     $routeProvider.when('/', {
       templateUrl: 'templates/order.tmpl.html',
