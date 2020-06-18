@@ -321,13 +321,18 @@ $(obj).$(TOOLSET)/%.o: $(obj)/%.s FORCE_DO_CMD
 
 ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
     $(findstring $(join ^,$(prefix)),\
-                 $(join ^,addon.target.mk)))),)
-  include addon.target.mk
+                 $(join ^,node_modules/node-addon-api/nothing.target.mk)))),)
+  include node_modules/node-addon-api/nothing.target.mk
+endif
+ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
+    $(findstring $(join ^,$(prefix)),\
+                 $(join ^,testaddon.target.mk)))),)
+  include testaddon.target.mk
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = cd $(srcdir); /usr/local/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/Users/Eric/WebstormProjects/Javascript-Frameworks/napi_wrapper/build/config.gypi -I/usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/Users/Eric/Library/Caches/node-gyp/12.16.3/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/Users/Eric/Library/Caches/node-gyp/12.16.3" "-Dnode_gyp_dir=/usr/local/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/Users/Eric/Library/Caches/node-gyp/12.16.3/<(target_arch)/node.lib" "-Dmodule_root_dir=/Users/Eric/WebstormProjects/Javascript-Frameworks/napi_wrapper" "-Dnode_engine=v8" binding.gyp
-Makefile: $(srcdir)/../../../Library/Caches/node-gyp/12.16.3/include/node/common.gypi $(srcdir)/../../../../../usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp
+cmd_regen_makefile = cd $(srcdir); /usr/local/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/Users/Eric/WebstormProjects/Javascript-Frameworks/test-addon/build/config.gypi -I/usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/Users/Eric/Library/Caches/node-gyp/12.16.3/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/Users/Eric/Library/Caches/node-gyp/12.16.3" "-Dnode_gyp_dir=/usr/local/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/Users/Eric/Library/Caches/node-gyp/12.16.3/<(target_arch)/node.lib" "-Dmodule_root_dir=/Users/Eric/WebstormProjects/Javascript-Frameworks/test-addon" "-Dnode_engine=v8" binding.gyp
+Makefile: $(srcdir)/../../../Library/Caches/node-gyp/12.16.3/include/node/common.gypi $(srcdir)/../../../../../usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/node_modules/node-addon-api/node_api.gyp $(srcdir)/binding.gyp $(srcdir)/build/config.gypi
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included
