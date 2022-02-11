@@ -12,6 +12,6 @@
   "dependencies": {
     "@nestjs/cli": "^7.4.0",
     "express": "^4.9.5",
-    "express-handlebars": "^1.1.0"
+    "express-handlebars": "^5.3.1"
   }
 }
